@@ -1,0 +1,26 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<algorithm>
+#include<cmath>
+
+using namespace std;
+
+/*
+*This is from the Try This and is also exercise 3.1
+* 
+*/
+
+inline void keep_window_open() {
+	char ch; cin >> ch;
+}
+
+int main() {
+	cout << "Please enter your first name and age\n";
+	string first_name;
+	double age;
+	cin >> first_name;
+	cin >> age;
+	cout << "Hello, " << first_name << " (age " << age*12 << ")\n";
+	return 0;
+};
