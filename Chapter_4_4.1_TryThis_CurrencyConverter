@@ -1,0 +1,46 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<algorithm>
+#include<cmath>
+
+using namespace std;
+
+/*
+*This is from the Try This exercise in charpter 4.4.
+* 
+*/
+
+inline void keep_window_open() {
+	char ch; cin >> ch;
+}
+
+int main() {
+
+	cout << "Enter the type of currency to convert: Enter: K (Kroner), Y (Yuan), E (Euro).  ";
+	char input;
+	cin >> input;
+
+	cout << "Enter the amount of currency to convert : ";
+	double amount;
+	cin >> amount;
+
+
+	switch (input) {
+	case 'K':
+		cout << "The dollar amount is: " << amount * 0.091 << '\n';
+		break;
+	case 'Y':
+		cout << "The dollar amount is: " << amount * 0.14 << '\n';
+		break;
+	case 'E':
+		cout << "The dollar amount is: " << amount * 1.06 << '\n';
+		break;
+	default:
+		cout << "Invalid Selection " << '\n';
+	}
+
+	keep_window_open();
+
+		return EXIT_SUCCESS;
+};
