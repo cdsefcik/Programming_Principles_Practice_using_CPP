@@ -1,0 +1,27 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<algorithm>
+#include<cmath>
+
+using namespace std;
+
+/*
+*This is from the Try This exercise in charpter 4.4.2.1 
+*The character 'b' is char('a'+1), 'c' is char('a'+2), etc. Use a loop to write out a table of characters with their corresponding integer values:
+* 
+*/
+
+inline void keep_window_open() {
+	char ch; cin >> ch;
+}
+
+int main() {
+
+	for (int character = 'a'; character < char('a' + 26); character++) {
+		cout <<char(character)<<'\t'<< character << '\n';
+	}
+	keep_window_open();
+
+		return EXIT_SUCCESS;
+};
