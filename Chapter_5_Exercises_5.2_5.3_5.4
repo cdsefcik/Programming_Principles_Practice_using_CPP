@@ -1,0 +1,48 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<algorithm>
+#include<cmath>
+
+using namespace std;
+
+/*
+*This is the find the errors for exercises, 5.2, 5.3 and 5.4. 
+*5.2 is find all the errors to run the program.
+*5.3 and 5.4, handle the error where the temperature can not go below -273.15 degrees celcius.
+*/
+
+inline void keep_window_open() {
+	char ch; cin >> ch;
+}
+
+class belowKelvin{};
+
+double ctok(double c) {
+	try {
+		if (c < -373.15) {
+			throw belowKelvin();
+		}
+		else {
+			double k = c + 273.15;   //This will be a loss of information as doubles are converted to integers, narrowing conversion. Changed to double.
+			return k;                //Return is int, not the variable k, which is for kelvin. Also, needs semi colon.
+		}
+	}
+	catch (belowKelvin) {
+		cerr << "The celcius temperature does not exist" << endl;
+		return EXIT_FAILURE;
+    }
+	}
+
+
+int main() {
+	double c = 0;
+	cin >> c;                //Change to c, the defined double.
+	double k = ctok(c);      //Changed from a character to match the type of the function.
+	cout << k << endl;       //Changed from an uppercase to a lower case c
+
+	keep_window_open();
+	return EXIT_SUCCESS;
+
+}
+	
