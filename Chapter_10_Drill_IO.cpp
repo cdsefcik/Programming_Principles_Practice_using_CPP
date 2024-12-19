@@ -13,10 +13,12 @@ using namespace std;
 *Start a program to work with points, dicussed in 10.4. Begin by defining the data type Point that has two coordinate members x and y.
 *Using the code and discussion in 10.4, prompt the user to input seven (x,y) pairs. As teh data is entered, store it in a vector of Points called original_points.
 *Print the data in original_points to see what it looks like.
-* 
-* 
+*Open an ofstream and then open an ifstream for mydata.txt. Read the data from mydata.txt and store it in a new vector called processessed_points.
+*Print the data elements from both vectors
+*Compare the two vectors and print Something's wrong! if the number of elements or the values of the elements differ.
 * Notes: The program is setup to input doubles however there is precision differences during input output and throws off the comparison. Use integers as the point of the excerise is to demonstrate file io operations.
 * Also, I developed the program to do input output operations on data, like it would from a csv file, a real world application.
+* I used some different name for vectors, also, I printed the values that differ rather than "Somethings Wrong", in the book.
 */
 
 
