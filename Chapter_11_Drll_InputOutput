@@ -1,0 +1,56 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<algorithm>
+#include<cmath>
+#include<fstream>
+#include<sstream>
+#include <iomanip> //For the setprecision.
+
+
+using namespace std;
+
+
+
+/*
+* This program is for chapter 11, Drill
+* Start a program called Test_output.cpp. Declare an integer birth_year and assign it the year you were born.
+* Output your birth_year in decimal,hexadecimal, and octal form.
+* Label each value with the name of the base used.
+* Lable each column with a tab delimiter.
+* Go back to 2 and cause your output to show the base for each output.
+* Try reading as octal, hex, etc for the below code.
+* Explain the results.
+* 
+*/
+
+
+int main() {
+
+    int birth_year = 1982;
+
+    cout << birth_year << "\t" << hex << birth_year << "\t" << oct << birth_year << "\t" << endl;
+
+    cout << showbase << dec << endl;
+
+    cout << birth_year << "\t" << hex << birth_year << "\t" << oct << birth_year << "\t" << endl;
+
+    int a;
+    int b;
+    int c;
+    int d;
+    cout << dec << endl;
+    cin >> a >> hex >> b >> oct >> c >> d;
+    cout << a << '\t' << b << '\t' << c << '\t' << d << '\t' << endl;
+
+    //Floating point output:
+    cout << 1234.56789 << "\t\t(general)\n" //\t\t to line up the columns
+        << fixed << 1234.56789 << "\t(fixed)\n"
+        << scientific << 1234.56789 << "\t(scientific)\n";
+
+    //Make a simple table including last name, first name, telephone number, and email address for yourself and at least five of your friends.
+    //Experiment with different field widths until you are satisfied that the table is well preserved.
+    cout<< "Last Name|" << setw(20)<< setw(20)<< "First Name|" << "Telephone Number" <<"|"<< "Email Address" << endl;
+
+        return EXIT_SUCCESS;
+}
