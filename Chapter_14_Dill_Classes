@@ -1,0 +1,94 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<algorithm>
+#include<cmath>
+#include<fstream>
+#include<sstream>
+#include <iomanip> //For the setprecision.
+
+
+//For graphics
+
+
+
+
+using namespace std;
+
+
+
+/*
+* These is the drill from Chapter 14.
+* 
+*/
+
+class B1 {
+public:
+	void vf() {cout << "B1::vf()"<<endl;}
+	void f() {cout << "B1::f()" << endl;}
+	void virtual pvf() = 0;
+};
+
+class D1:B1 {
+public:
+	void vf(){cout << "D1::vf()" << endl;}
+	void f() {cout << "D1::v()" << endl; }
+};
+
+class D2 :D1 {
+public:
+	void vf() { cout << "D2::vf()" << endl; }
+	void f() { cout << "D2::v()" << endl; }
+	void pvf() { cout << "D2::pvf()" << endl; };
+};
+
+class B2 {
+public:
+	void virtual pvf() = 0;
+};
+
+class D21:B2 {
+public:
+	string data = "This is the data from D21";
+	void pvf() {
+		cout<<data;
+	}
+};
+
+class D22:B2 {
+public:
+	int data = 0;
+	void pvf() {
+		cout << data;
+	}
+};
+
+
+int main() {
+
+	//B1 B1object;
+
+	//Call the functions from B1:
+	//B1object.vf();
+	//B1object.f();
+
+	//Call the functions from D1
+	//D1 D1object;
+	//D1object.vf();
+	//D1object.f();
+
+	//Reference to B1
+	//B1& D1objectref = B1object;
+
+	//D1objectref.vf();
+	//D1objectref.f();
+
+	//D2
+	D2 D2Object;
+	D2Object.vf();
+	D2Object.f();
+	D2Object.pvf();
+
+   
+	return 0;
+}
