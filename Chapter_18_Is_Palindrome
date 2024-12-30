@@ -1,0 +1,62 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<algorithm>
+#include<cmath>
+#include<fstream>
+#include<sstream>
+
+
+using namespace std;
+
+/*
+* Chapter 18, is palindrome example
+* Note, this program does not take into case.
+*/
+
+
+//Is palindrome
+bool is_palindrome(const char s[], int n) {
+
+	int first = 0;     //Index of the first letter.
+	int last = n - 1;  //Index of the last letter.
+
+	while (first < last) {
+		if (s[first] != s[last]) return false;
+		++first; //Move forward.
+		--last;  //Move backward.
+	}
+	return true;
+}
+
+//Is palindrome with pointers
+bool is_palindrome_pointer(const char* first, const char* last) {
+
+	while (first < last) {
+		if (*first != *last) return false;
+		++first;
+		--last;
+	}
+	return true;
+}
+
+istream& read_word(istream& is, char* buffer, int max) {
+	//Read at most max-1 characters from is into buffer
+	is.width(max); //Read at most max-1 characters in the next >>
+		is >> buffer; //Read whitespace-terminated word,
+		return is;
+}
+
+int main() {
+
+	const int max = 128;
+	char s[max];
+
+	while (read_word(cin, s, max)) {
+		cout << s << " is";
+		if (!is_palindrome(s, strlen(s)))cout << " not";
+		cout << " a palindrome\n";
+	}
+	
+	return 0;
+}
