@@ -1,0 +1,31 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<algorithm>
+#include<cmath>
+#include<fstream>
+#include<sstream>
+
+
+using namespace std;
+
+/*
+* Chapter 19, drill.
+* 1: Define template template<class T> struct S {T val;};
+* 2: Add a constructor, so that you can initialize with a T.
+* 3: Define variables of types S<int>, S<char>,S<double>, S<string>, and S<vector<int>>; initialize them with values of your choice.
+* 4: Read those values and print them.
+* 5: Add a function template get() that returns a reference to val.
+* 6: Put the definition of get() outside the class.
+* 7: Make val private.
+* 8: Do 4 again using ger().
+* 9: Add a set() function template so that you can change val.
+* 10: Replace set() function tamplate so that you can change val.
+* 11: Provide const and non-const versions of get().
+* 12: Define a function template<class T> read val(T& v) that reads from cin into v.
+* 13: Use read_val() to read into each of the variables from 3 except thte S<vector<int>> variable.
+*/
+
+int main() {
+	return 0;
+}
