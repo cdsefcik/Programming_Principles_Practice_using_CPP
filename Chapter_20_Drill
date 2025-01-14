@@ -1,0 +1,131 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<algorithm>
+#include<cmath>
+#include<fstream>
+#include<sstream>
+#include<list>
+
+
+using namespace std;
+
+/*
+* Chapter 20, drill.
+* 1: Define an array of ints with the ten elements {0,1,2,3,4,5,6,7,8,9}.
+* 2: Define a vector with those 10 elements.
+* 3: Define a list with those 10 elements.
+* 4: Define a second array, vector, and list, each initialized as a copy of the first array, vector, and list respectively.
+* 5: Increase the value of each element in the array by 2, increase each value of the element in the vector by 3, increase each elemenet in the list by 5.
+* 6: Write a simple copy() operation. template<class iter1, class iter2> iter2 copy(iter1 f1, iter1 e1, iter2 f2); that copies [f1,e1) to [f2,f2+(e1-f1)) and returns f2+(e1-f1) just like the standard library copy function.
+*    Note that if f1==e1 the sequence is empty, so that there is nothing to copy.
+* 7: Use your copy() to copy the array into the vector and to copy the list into the array. 
+* 8: USe the standard library find() to see of the vector contains the value 3 and print out its position if it does; use find() to see if the list contains
+* the value 27 and print out its position if it does. The "position" of the first element is 0, the position of the second element is 1, etc. Note that if find() returns the end of the sequence,
+* the value was't found. Note: Continue number 8 later.
+*/
+
+//template<class iter1, class iter2> iter2 copyNew(iter1 f1, iter1 e1, iter2 f2) {
+//	while (f1 != e1) {
+//		*f2 = *f1;
+//			++f1; ++f2;
+//	}
+///	return f2;
+//};
+
+
+template<class InputIterator, class OutputIterator>
+OutputIterator copyTest(InputIterator first, InputIterator last, OutputIterator result)
+{
+	while (first != last) {
+		*result = *first;
+		++result; ++first;
+	}
+	return result;
+}
+
+int main() {
+
+	//1
+	int intArray[10] = { 0,1,2,3,4,5,6,7,8,9 };
+	//2
+	vector<int>* intVector = new vector<int>{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    //3
+	list<int> intList = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+	//4
+	int intArray2[10];
+	
+	std::copy(begin(intArray), end(intArray), intArray2);
+	vector<int> *intVector2 = intVector;
+	list<int> intList2 = intList;
+
+	
+	//5
+	for (int i = 0; i < 10; i++) {
+		intArray[i] += 2;
+	}
+
+	for (int i = 0; i < intVector->size(); i++) {
+		intVector->at(i) += 3;
+	}
+
+	for (list<int>::iterator begin = intList.begin(); begin != intList.end(); ++begin) {
+		*begin += 5;
+	}
+
+	//6
+	int intArrayCopyTest[10] = { 0,1,2,3,4,5,6,7,8,9 };
+	int intArrayCopyTest2[10];
+	vector<int>* intVectorCopyTest = new vector<int>(10);
+	list<int> intListCopyTest = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+	
+	//7
+	copyTest(intArrayCopyTest, intArrayCopyTest + 10, intVectorCopyTest->begin());
+
+	for (int i = 0; i < 10; i++) {
+		cout << intVectorCopyTest->at(i) << endl;
+	}
+
+	copyTest(intListCopyTest.begin(), intListCopyTest.end(), intArrayCopyTest2);
+
+	cout << " " << endl;
+
+	for (int i = 0; i < 10; i++) {
+		cout << intArrayCopyTest2[i] << endl;
+	}
+	
+	//8
+	/*
+	int *arrayfound = std::find(intArray, intArray + 10, 3);
+
+	cout << "The positon for 3 is: " << *arrayfound << endl;
+
+	int* arrayfound2 = std::find(intArray, intArray + 10, 27);
+	
+	cout << "The positon for 27 is: " << *arrayfound2 << endl;
+
+
+	auto vectorfound = std::find(intVector->begin(), intVector->end(), 3);
+	auto vectorfound2 = std::find(intVector->begin(), intVector->end(), 27);
+
+	cout << "The positon for 3 is: " << *vectorfound << endl;
+	cout << "The positon for 27 is: " << *vectorfound2 << endl;
+
+	auto listfound = std::find(intList.begin(),intList.end(), 3);
+	auto listfound2 = std::find(intList.begin(), intList.end(), 27);
+
+	if (listfound != intList.end()) {
+		std::cout << "Element found at position: " << std::distance(intList.begin(), listfound) << std::endl;
+	}
+	else {
+		std::cout << "Element not found" << std::endl;
+	}
+
+	cout << "The positon for 3 is: " << *listfound << endl;
+	cout << "The positon for 27 is: " << *listfound2 << endl;
+	*/
+
+	return 0;
+}
