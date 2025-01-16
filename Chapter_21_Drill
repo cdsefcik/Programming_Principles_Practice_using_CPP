@@ -1,0 +1,44 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<algorithm>
+#include<cmath>
+#include<fstream>
+#include<sstream>
+#include<list>
+
+
+using namespace std;
+
+/*
+* Chapter 21, Algorithms and Maps Drill
+* 1A. Define the struct item {string name; int iid; double value;} and make a vector<item>, vi and fill it with ten items from a file. (Continue)
+*/
+
+struct Item {
+	string name;
+	int iid;
+	double value;
+};
+
+class ErrorOpenFile{};
+
+int main() {
+
+	vector<Item> vi;
+
+	//Input the file
+	ifstream inputFile("ItemData.txt");
+	try {
+		if (!inputFile) {
+			throw ErrorOpenFile();
+		}
+		else {
+			cout << "File was opened successfully: " << endl;
+		}
+	}catch(ErrorOpenFile){
+		cerr << "Can not open the input file: ";
+	}
+
+	return 0;
+}
